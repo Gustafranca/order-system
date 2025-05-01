@@ -2,16 +2,27 @@ import tkinter as tk
 from tkinter import messagebox
 import datetime
 import os
+import sys
 
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm
 
 
-
 def gerar_relatorio(nome_comprador, itens, frete):
-    os.makedirs("relatorio", exist_ok=True)
-    nome_arquivo = f"relatorio/pedido_{nome_comprador.replace(' ', '_')}.pdf"
+
+    if getattr(sys, 'frozen', False):
+    # Executável criado com PyInstaller
+        pasta_base = os.path.dirname(sys.executable)
+    else:
+    # Script rodando normalmente com Python
+        pasta_base = os.path.dirname(os.path.abspath(__file__))
+
+    pasta_relatorio = os.path.join(pasta_base, "relatorio")
+    os.makedirs(pasta_relatorio, exist_ok=True)
+
+    nome_arquivo = pasta_relatorio + f"\pedido_{nome_comprador.replace(' ', '_')}.pdf"
+
     c = canvas.Canvas(nome_arquivo, pagesize=A4)
     largura, altura = A4
 
