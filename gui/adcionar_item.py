@@ -6,13 +6,15 @@ def janela_adicionar_item(root):
     top = tk.Toplevel(root)
     top.title("Adicionar Item")
 
-    tk.Label(top, text="Nome do item:").pack()
-    nome_entry = tk.Entry(top)
-    nome_entry.pack()
+    top.geometry("200x250")
+    fonte = ('Segoe UI', 12)
+    tk.Label(top, text="Nome do item:", font=fonte).pack(anchor="w", padx=40, pady=(10, 2))
+    nome_entry = tk.Entry(top, font=fonte, width=30)
+    nome_entry.pack(padx=40, pady=(0, 10))
 
-    tk.Label(top, text="Preço do item:").pack()
-    preco_entry = tk.Entry(top)
-    preco_entry.pack()
+    tk.Label(top, text="Preço do item:", font=fonte).pack(anchor="w", padx=40, pady=(10, 2))
+    preco_entry = tk.Entry(top, font=fonte, width=30)
+    preco_entry.pack(padx=40, pady=(0, 20))
 
     def adicionar():
         nome = nome_entry.get()

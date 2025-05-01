@@ -14,12 +14,18 @@ def janela_novo_pedido(root):
     comprador_entry = tk.Entry(win)
     comprador_entry.grid(row=0, column=1)
 
+
+    win.columnconfigure(0, weight=1)
+    win.columnconfigure(1, weight=1)
+    win.rowconfigure(2, weight=1)
+
+
     tk.Label(win, text="Frete (R$):").grid(row=1, column=0, padx=5, pady=5)
     frete_entry = tk.Entry(win)
     frete_entry.grid(row=1, column=1)
 
     lista_itens_pedido = tk.Text(win, height=10, width=40)
-    lista_itens_pedido.grid(row=2, column=0, columnspan=2, pady=5)
+    lista_itens_pedido.grid(row=2, column=0, columnspan=2, pady=5, sticky='nsew')
 
     def adicionar_item_ao_pedido():
         add_win = tk.Toplevel(win)
