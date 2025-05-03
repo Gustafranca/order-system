@@ -8,7 +8,7 @@ def main():
 
     root = tk.Tk()
     root.title("Sistema de Pedidos")
-    root.geometry("400x400")
+    root.geometry("500x500")
     root.eval('tk::PlaceWindow . center')
 
     style = ttk.Style()

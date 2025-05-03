@@ -7,6 +7,7 @@ def janela_modificar_item(root):
     win = tk.Toplevel(root)
     win.title("Modificar itens")
     itens = carregar_itens()
+    win.geometry("500x500")
     tree = ttk.Treeview(win, columns=("nome", "valor"), show="headings", selectmode="browse")
     tree.heading("nome", text="Nome")
     tree.heading("valor", text="Valor")
@@ -28,7 +29,7 @@ def janela_modificar_item(root):
                 itens[int(item_id)]["nome"] = novo_valor
             else:
                 try:
-                    novo_valor = float(novo_valor)
+                    novo_valor = float(novo_valor.replace(",", "."))
                     itens[int(item_id)]["valor"] = novo_valor
                 except ValueError:
                     messagebox.showerror("Erro", "Valor inválido.")

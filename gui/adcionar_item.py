@@ -6,7 +6,7 @@ def janela_adicionar_item(root):
     top = tk.Toplevel(root)
     top.title("Adicionar Item")
 
-    top.geometry("200x250")
+    top.geometry("300x300")
     fonte = ('Segoe UI', 12)
     tk.Label(top, text="Nome do item:", font=fonte).pack(anchor="w", padx=40, pady=(10, 2))
     nome_entry = tk.Entry(top, font=fonte, width=30)
